@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 module.exports = {
   description: 'Create a Page',
+
   prompts: [
     {
       type: 'input',
@@ -11,13 +13,29 @@ module.exports = {
         }
         return true
       }
+    },
+
+    {
+      type: 'input',
+      name: 'layout',
+      message: 'Type the layout name',
+      default: 'default'
     }
   ],
-  actions: [
-    {
-      type: 'add',
-      path: '../pages/{{pascalCase name}}.ts',
-      templateFile: './pages/templates/page.hbs'
-    }
-  ]
+
+  actions: (data) => {
+    const action = [
+      {
+        type: 'add',
+        path: '../../pages/{{lowerCase name}}.vue',
+        data: { message: `Hello ${data.name}` },
+        templateFile: './pages/templates/page.hbs'
+      },
+
+      function (data) {
+        return `Page ${data.name} created`
+      }
+    ]
+    return action
+  }
 }

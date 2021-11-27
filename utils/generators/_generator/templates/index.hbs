@@ -1,0 +1,32 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+module.exports = {
+  description: 'Description',
+  prompts: [
+    {
+      type: 'input',
+      name: 'name',
+      message: 'Text',
+      validate: (value) => {
+        if (!value) {
+          return 'Value is required'
+        }
+        return true
+      }
+    }
+  ],
+
+  actions: (data) => {
+    const action = [
+      {
+        type: 'add',
+        path: '../../path_to_create_file',
+        templateFile: './templates/templates/{{template}}.hbs'
+      },
+
+      function (data) {
+        return `File ${data.name} created`
+      }
+    ]
+    return action
+  }
+}

@@ -12,6 +12,58 @@
     ]
   },
 
+  "Plop File": {
+    "prefix": "plopTemplate",
+    "body": [
+      "module.exports = {",
+      "  description: '${1:Description}',",
+      "  prompts: [",
+      "    {",
+      "      type: 'input',",
+      "      name: 'name',",
+      "      message: '${2:Text}'",
+      "    }",
+      "  ],",
+      "",
+      "  actions: (data) => {",
+      "    const action = [",
+      "      {",
+      "        type: 'add',",
+      "        path: '${3:path_to_create_file}',",
+      "        templateFile: './${TM_DIRECTORY/^.+\\/(.*)$/$1/}/templates/XXXXXXXXXX'",
+      "      },",
+      "      function (data) {",
+      "        return `File \\${data.name} created`",
+      "      }",
+      "    ]",
+      "",
+      "    return action",
+      "",
+      "  }",
+      "}",
+      ""
+    ]
+  },
+
+  "Plop Prompt Template": {
+    "prefix": "promptPlopTemplate",
+    "body": [
+      "{",
+      "  type: 'input',",
+      "  name: '${1:NAME}',",
+      "  message: '${2:Text}',",
+      "  default: 'Default_Value',",
+      "  validate: (value) => {",
+      "    if (!value) {",
+      "      return '${1:NAME} is required'",
+      "    }",
+      "    return true",
+      "  }",
+      "}"
+    ]
+  },
+
+
   "NuxtJS Component Template": {
     "prefix": "componentTemplate",
     "body": [
