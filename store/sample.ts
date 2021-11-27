@@ -1,21 +1,11 @@
-import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
+import { Module, VuexModule } from 'vuex-module-decorators'
 
 @Module({ name: 'sample', stateFactory: true, namespaced: true })
 export default class Sample extends VuexModule {
-  private count = 0
+  private message = 'Hello NuxtJS'
 
-  public get $count() {
-    return this.count
-  }
-
-  @Mutation
-  private INCREMENT(number: number) {
-    this.count += number
-  }
-
-  @Action
-  public increment() {
-    this.context.commit('INCREMENT', 5)
+  public get $message() {
+    return this.message
   }
 
   // @Action

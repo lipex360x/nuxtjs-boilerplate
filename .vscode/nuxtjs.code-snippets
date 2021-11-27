@@ -12,22 +12,14 @@
     ]
   },
 
-  "VueJS Component Template": {
+  "NuxtJS Component Template": {
     "prefix": "componentTemplate",
     "body": [
       "<template>",
-      "  <${1:TAG_NAME} class=\"${TM_DIRECTORY/^.+\\/(.*)$/$1/}-${TM_FILENAME_BASE/(.*)/${1:/downcase}/}\">",
+      "  <section class=\"${TM_DIRECTORY/^.+\\/(.*)$/$1/}-${TM_FILENAME_BASE/(.*)/${1:/downcase}/}\">",
       "    <h1>$TM_FILENAME_BASE</h1>",
-      "  </${1:TAG_NAME}>",
+      "  </section>",
       "</template>",
-      "",
-      "<script lang=\"ts\">",
-      "import Vue from 'vue'",
-      "",
-      "export default Vue.extend({",
-      "  // vue here",
-      "})",
-      "</script>",
       "",
       "<style lang=\"scss\" scoped>",
       ".${TM_DIRECTORY/^.+\\/(.*)$/$1/}-${TM_FILENAME_BASE/(.*)/${1:/downcase}/} {",
@@ -38,7 +30,20 @@
     ]
   },
 
-  "NextJS Page Template": {
+  "NuxtJS Script Template": {
+    "prefix": "scriptTemplate",
+    "body": [
+      "<script lang=\"ts\">",
+      "import Vue from 'vue'",
+      "",
+      "export default Vue.extend({",
+      "  ${1}",
+      "})",
+      "</script>",
+    ]
+  },
+
+  "NuxtJS Page Template": {
     "prefix": "pageTemplate",
     "body": [
       "<template>",
@@ -56,8 +61,7 @@
     ]
   },
 
-
-  "VueJS Props Template": {
+  "NuxtJS Props Template": {
     "prefix": "propsTemplate",
     "body": [
       "props: {",
@@ -66,22 +70,62 @@
     ]
   },
 
-  "VueJS Computed Template": {
-    "prefix": "computedTemplate",
+  "NuxtJS Methods Template": {
+    "prefix": "methodsTemplate",
     "body": [
-      "computed:{",
-      "  ${1:FUNCTION_NAME}() {",
+      "methods: {",
+      "  ${1:FUNCTION_NAME}(): ${2|void,string,number,bolean,object,array|} {",
       "    return true",
       "  }",
       "}",
     ]
   },
 
-  "VueJS Mounted Template": {
+  "NuxtJS Computed Template": {
+    "prefix": "computedTemplate",
+    "body": [
+      "computed: {",
+      "  ${1:FUNCTION_NAME}(): ${2|void,string,number,bolean,object,array|} {",
+      "    return true",
+      "  }",
+      "}",
+    ]
+  },
+
+  "NuxtJS Mounted Template": {
     "prefix": "mountedTemplate",
     "body": [
       "mounted() {",
       "  return true",
+      "}",
+    ]
+  },
+
+  "NuxtJS @Action Store": {
+    "prefix": "actionStoreTemplate",
+    "body": [
+      "@Action",
+      "${1:function_name}() {",
+      "  this.context.commit('${2:MUTATION_NAME}', 'value')",
+      "}",
+    ]
+  },
+
+  "NuxtJS @Mutation Store": {
+    "prefix": "mutationStoreTemplate",
+    "body": [
+      "@Mutation",
+      "${1:MUTATION_NAME}(${2:prop_name}: ${3|string,number,bolean,object|}) {",
+      "  this.${4:state} = ${2:prop_name}",
+      "}",
+    ]
+  },
+
+  "NuxtJS Getters Store": {
+    "prefix": "getStoreTemplate",
+    "body": [
+      "public get \\$${1:PROP_NAME}() {",
+      "  return this.${1:PROP_NAME}",
       "}",
     ]
   },

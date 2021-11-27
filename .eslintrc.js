@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'vue/no-v-html': 'off',
-    'no-console': 'off'
+    'no-console': 'off',
+    'import/no-mutable-exports': 'off'
   }
 }
