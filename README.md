@@ -1,5 +1,7 @@
 # NuxtJS Boilerplate
 
+NuxtJS with Atomic Design
+
 ## Build Setup
 
 ```bash
