@@ -1,4 +1,4 @@
-# ibook
+# NuxtJS Boilerplate
 
 ## Build Setup
 
