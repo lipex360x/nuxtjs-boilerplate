@@ -38,6 +38,25 @@
     ]
   },
 
+  "NextJS Page Template": {
+    "prefix": "pageTemplate",
+    "body": [
+      "<template>",
+      "  <${1:PAGE_TEMPLATE} />",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "import Vue from 'vue'",
+      "",
+      "export default Vue.extend({",
+      "  layout: '${2:LAYOUT_NAME}'",
+      "})",
+      "</script>",
+      ""
+    ]
+  },
+
+
   "VueJS Props Template": {
     "prefix": "propsTemplate",
     "body": [
