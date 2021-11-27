@@ -6,6 +6,7 @@
     "dev": "nuxt",
     "api": "json-server --watch db.json -p 3333",
     "build": "nuxt build",
+    "gen": "yarn plop --plopfile ./utils/generators/plopfile.js",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
