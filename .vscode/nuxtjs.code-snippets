@@ -1,0 +1,63 @@
+{
+  "Template Snippets": {
+    "prefix": "snippetTemplate",
+    "body": [
+      "\"${1:SNIPPET_TITLE}\": {",
+      "  \"prefix\": \"${2:PREFIX}\",",
+      "  \"body\": [",
+      "    \"${3:BODY}\"",
+      "  ]",
+      "},",
+      "",
+    ]
+  },
+
+  "VueJS Component Template": {
+    "prefix": "componentTemplate",
+    "body": [
+      "<template>",
+      "  <${1:TAG_NAME}>$TM_FILENAME_BASE</${1:TAG_NAME}>",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "import Vue from 'vue'",
+      "",
+      "export default Vue.extend({})",
+      "</script>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>",
+    ]
+  },
+
+  "VueJS Props Template": {
+    "prefix": "propsTemplate",
+    "body": [
+      "props: {",
+      "  ${1:NAME}: { type: ${2|String,Number,Bolean,Object|}, required: ${3|true,false|} }",
+      "}",
+    ]
+  },
+
+  "VueJS Computed Template": {
+    "prefix": "computedTemplate",
+    "body": [
+      "computed:{",
+      "  ${1:FUNCTION_NAME}() {",
+      "    return true",
+      "  }",
+      "}",
+    ]
+  },
+
+  "VueJS Mounted Template": {
+    "prefix": "mountedTemplate",
+    "body": [
+      "mounted() {",
+      "  return true",
+      "}",
+    ]
+  },
+
+}
