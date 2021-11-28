@@ -5,12 +5,12 @@
 const capitalize = require('../_utils/capitalize')
 
 module.exports = {
-  description: 'Description',
+  description: 'Generate a Store',
   prompts: [
     {
       type: 'input',
       name: 'name',
-      message: 'Text',
+      message: 'Store Module Name',
       validate: (value) => {
         if (!value) {
           return 'Value is required'
@@ -24,8 +24,9 @@ module.exports = {
 
   actions: (data) => {
     const file = {
-      path: `../../{{filepath}}`,
+      path: `../../store`,
       name: data.name,
+      className: capitalize(data.name),
       class: `${data.type + 's'}-${data.name.toLowerCase()}`,
       scripts: data.scripts
     }
@@ -33,11 +34,12 @@ module.exports = {
     const action = [
       {
         type: 'add',
-        path: `${file.path}/${file.name}.{{extension}}`,
-        templateFile: './{{name}}/templates/{{template}}.hbs'
+        path: `${file.path}/${file.name}.ts`,
+        data: { file },
+        templateFile: './store/templates/store.hbs'
       },
 
-      function (data) {
+      function () {
         return `File ${data.name} created`
       }
     ]

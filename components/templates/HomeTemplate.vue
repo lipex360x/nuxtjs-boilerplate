@@ -2,6 +2,7 @@
   <section class="templates-home">
     <h1>Nuxt Boilerplate</h1>
     <p>{{ $message }}</p>
+    <button @click="setMessage">Say Hello World</button>
   </section>
 </template>
 
@@ -13,6 +14,12 @@ export default Vue.extend({
   computed: {
     $message(): string {
       return sample.$message
+    }
+  },
+
+  methods: {
+    setMessage(): void {
+      return sample.setMessage()
     }
   }
 })

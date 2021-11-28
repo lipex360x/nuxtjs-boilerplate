@@ -3,7 +3,7 @@
 const capitalize = require('../_utils/capitalize')
 
 module.exports = {
-  description: 'Generate Components',
+  description: 'Generate a Component',
   prompts: [
     {
       type: 'list',
@@ -65,8 +65,3 @@ module.exports = {
     return action
   }
 }
-
-// function capitalize(word) {
-//   const lower = word.toLowerCase()
-//   return word.charAt(0).toUpperCase() + lower.slice(1)
-// }
