@@ -5,12 +5,12 @@
 const capitalize = require('../_utils/capitalize')
 
 module.exports = {
-  description: 'Generate a {{ name }}',
+  description: 'Generate a Entity',
   prompts: [
     {
       type: 'input',
       name: 'name',
-      message: 'Text',
+      message: 'Type Entity Name',
       validate: (value) => {
         if (!value) {
           return 'Value is required'
@@ -24,7 +24,7 @@ module.exports = {
 
   actions: (data) => {
     const file = {
-      path: `../../{{filepath}}`,
+      path: `../../entities`,
       name: data.name,
       class: `${data.type + 's'}-${data.name.toLowerCase()}`,
       scripts: data.scripts
@@ -33,9 +33,9 @@ module.exports = {
     const action = [
       {
         type: 'add',
-        path: `${file.path}/${file.name}.{{extension}}`,
+        path: `${file.path}/${file.name}.ts`,
         data: { file },
-        templateFile: './{{name}}/templates/{{template}}.hbs'
+        templateFile: './entity/templates/entity.hbs'
       },
 
       function (data) {

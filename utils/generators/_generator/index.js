@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+const capitalize = require('../_utils/capitalize')
+
 module.exports = {
   description: 'Plop generate Generators',
   prompts: [
@@ -51,6 +53,7 @@ module.exports = {
 
       {
         type: 'add',
+        data: { name: capitalize(data.name) },
         path: './{{lowerCase name}}/templates/{{template}}.hbs'
       },
 
