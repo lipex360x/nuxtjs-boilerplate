@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 module.exports = {
-  description: 'Plop generate generators',
+  description: 'Plop generate Generators',
   prompts: [
     {
       type: 'input',
       name: 'name',
-      message: 'Generator Name',
+      message: 'Type Generator Name',
       validate: (value) => {
         if (!value) {
-          return 'Name is required'
+          return 'Generator Name is required'
         }
         return true
       }
@@ -16,10 +16,10 @@ module.exports = {
     {
       type: 'input',
       name: 'template',
-      message: 'Template Name',
+      message: 'Type Handlebars Template Name',
       validate: (value) => {
         if (!value) {
-          return 'Template is required'
+          return 'Template Name is required'
         }
         return true
       }
