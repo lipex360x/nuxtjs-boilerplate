@@ -2,7 +2,7 @@ import { Module, VuexModule, Action, Mutation } from 'vuex-module-decorators'
 
 @Module({ name: 'sample', stateFactory: true, namespaced: true })
 export default class Sample extends VuexModule {
-  private message = 'Hello Store'
+  private message = 'Sample Store'
 
   public get $message() {
     return this.message
@@ -14,8 +14,8 @@ export default class Sample extends VuexModule {
   }
 
   @Action
-  public setMessage() {
-    this.context.commit('SET_MESSAGE', 'Hello World')
+  public setMessage(message: string) {
+    this.context.commit('SET_MESSAGE', message)
   }
 
   // @Action

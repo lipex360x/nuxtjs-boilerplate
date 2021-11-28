@@ -2,7 +2,7 @@
   <section class="templates-home">
     <h1>Nuxt Boilerplate</h1>
     <p>{{ $message }}</p>
-    <button @click="setMessage">Say Hello World</button>
+    <button @click="setMessage">Say Hello</button>
   </section>
 </template>
 
@@ -19,7 +19,8 @@ export default Vue.extend({
 
   methods: {
     setMessage(): void {
-      return sample.setMessage()
+      console.log('hello')
+      return sample.setMessage('Hello World')
     }
   }
 })
