@@ -46,7 +46,7 @@
   },
 
   "Plop Prompt Template": {
-    "prefix": "promptPlopTemplate",
+    "prefix": "promptTemplate",
     "body": [
       "{",
       "  type: 'input',",
@@ -85,13 +85,15 @@
   "NuxtJS Script Template": {
     "prefix": "scriptTemplate",
     "body": [
+      "",
       "<script lang=\"ts\">",
       "import Vue from 'vue'",
       "",
       "export default Vue.extend({",
-      "  ${1}",
+      "  // script here",
       "})",
       "</script>",
+      "",
     ]
   },
 

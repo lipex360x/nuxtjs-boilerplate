@@ -24,12 +24,21 @@ module.exports = {
   ],
 
   actions: (data) => {
+    const template = 'page'
+
+    const file = {
+      path: `../../pages`,
+      name: data.name,
+      class: `${data.type + 's'}-${data.name.toLowerCase()}`,
+      scripts: data.scripts
+    }
+
     const action = [
       {
         type: 'add',
-        path: '../../pages/{{lowerCase name}}.vue',
-        data: { message: `Hello ${data.name}` },
-        templateFile: './pages/templates/page.hbs'
+        path: `${file.path}/${file.name}.vue`,
+        data: { file },
+        templateFile: `./pages/templates/${template}.hbs`
       },
 
       function (data) {

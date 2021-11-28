@@ -1,0 +1,23 @@
+<template>
+  <section class="{{ file.class }}">
+    <h1>{{ file.name }}</h1>
+  </section>
+</template>
+
+{{#if file.scripts}}
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  // scripts here
+})
+</script>
+{{else}}
+<!-- Nuxt Script Tag Snippet: scriptTemplate -->
+{{/if}}
+
+<style lang="scss" scoped>
+.{{ file.class }} {
+  // scss here
+}
+</style>

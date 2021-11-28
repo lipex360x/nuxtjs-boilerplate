@@ -1,4 +1,7 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+const capitalize = require('../_utils/capitalize')
+
 module.exports = {
   description: 'Generate Components',
   prompts: [
@@ -26,20 +29,34 @@ module.exports = {
         }
         return true
       }
+    },
+
+    {
+      type: 'confirm',
+      name: 'scripts',
+      message: 'Add Nuxt Scripts Tag?',
+      default: false
     }
   ],
 
   actions: (data) => {
-    const path = `../../components/${data.type + 's'}/`
-    const file = '{{ pascalCase name}}.vue'
-    const filePath = path + file
+    const template = data.type
+
+    const file = {
+      path: `../../components/${data.type + 's'}`,
+      name: capitalize(data.name),
+      class: `${data.type + 's'}-${data.name.toLowerCase()}`,
+      scripts: data.scripts
+    }
 
     const action = [
       {
         type: 'add',
-        path: filePath,
-        templateFile: './components/templates/{{type}}.hbs'
+        path: `${file.path}/${file.name}.vue`,
+        data: { file },
+        templateFile: `./components/templates/${template}.hbs`
       },
+
       function (data) {
         return `File ${data.name} created`
       }
@@ -48,3 +65,8 @@ module.exports = {
     return action
   }
 }
+
+// function capitalize(word) {
+//   const lower = word.toLowerCase()
+//   return word.charAt(0).toUpperCase() + lower.slice(1)
+// }
