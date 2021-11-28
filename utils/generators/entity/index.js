@@ -25,7 +25,7 @@ module.exports = {
   actions: (data) => {
     const file = {
       path: `../../entities`,
-      name: data.name,
+      name: capitalize(data.name),
       class: `${data.type + 's'}-${data.name.toLowerCase()}`,
       scripts: data.scripts
     }
